@@ -1,26 +1,23 @@
 <?php
 $conn = mysql_connect("host","usuario","senha");
 $db = mysql_select_db("bancodedados");
-?>
-<?php
+
 $busca = "SELECT * FROM tabelax";
-?
-<?php
+
+
 $total_reg = "10"; // número de registros por página
-?>
-<?php
+
+
 $pagina=$_GET['pagina'];
 if (!$pagina) {
 $pc = "1";
 } else {
 $pc = $pagina;
 }
-?>
-<?php
+
 $inicio = $pc - 1;
 $inicio = $inicio * $total_reg;
-?>
-<?php
+
 $limite = mysql_query("$busca LIMIT $inicio,$total_reg");
 $todos = mysql_query("$busca");
 
